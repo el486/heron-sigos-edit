@@ -1,0 +1,25 @@
+* About to connect() to localhost port 8888 (#0)
+*   Trying 127.0.0.1... * connected
+* Connected to localhost (127.0.0.1) port 8888 (#0)
+* Server auth using Basic with user 'admin'
+> POST /geoserver/rest/reload HTTP/1.1
+Authorization: Basic YWRtaW46YW1iNTM=
+Host: localhost:8888
+Accept: */*
+Content-Length: 0
+Content-Type: application/x-www-form-urlencoded
+
+< HTTP/1.1 200 OK
+< Date: Tue, 09 Sep 2014 11:14:30 GMT
+< Server: Noelios-Restlet-Engine/1.0..8
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host localhost left intact
+# Successful cURL request to http://www.mosp.gba.gov.ar/sig_hidraulica/ms/geoserver/dipsoh/wms?LAYERS=dipsoh%3Adepartamentos&TRANSPARENT=TRUE&FORMAT=image%2Fpng&SINGLETILE=true&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&SRS=EPSG%3A900913&BBOX=-5943762.6800744,-4395236.4393942,-5630676.6122619,-4082150.3715817&WIDTH=256&HEIGHT=256
+# Unsuccessful cURL request to http://localhost:8888/geoserver/rest/reload [200]
+
+# Successful cURL request to http://www.mosp.gba.gov.ar/sig_hidraulica/ms/geoserver/dipsoh/wms?LAYERS=dipsoh%3Adepartamentos&TRANSPARENT=TRUE&FORMAT=image%2Fpng&SINGLETILE=true&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&SRS=EPSG%3A900913&BBOX=-5943762.6800744,-4395236.4393942,-5630676.6122619,-4082150.3715817&WIDTH=256&HEIGHT=256
+# Unsuccessful cURL request to http://localhost:8888/geoserver/rest/reload [200]
+
+
+* Closing connection #0

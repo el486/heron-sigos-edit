@@ -99,7 +99,7 @@ var postData = '<wfs:GetFeature xmlns:wfs="http://www.opengis.net/wfs" '
 +'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
 +'<wfs:Query typeName="SigosGis:obras_sigos_total" srsName="EPSG:900913">'
 +'<ogc:Filter xmlns:ogc="http://www.opengis.net/ogc">'
-+'<ogc:PropertyIsEqualTo><ogc:PropertyName>id_obra</ogc:PropertyName><ogc:Literal>'+e.feature.attributes.id_obra+'</ogc:Literal></ogc:PropertyIsEqualTo>'
++'<ogc:PropertyIsEqualTo><ogc:PropertyName>id_obra</ogc:PropertyName><ogc:Literal>'+text+'</ogc:Literal></ogc:PropertyIsEqualTo>'
 +'</ogc:Filter>'
 +'</wfs:Query>'
 +'</wfs:GetFeature>';

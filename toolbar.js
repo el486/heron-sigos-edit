@@ -267,7 +267,16 @@ var toolBarItems=[
 				showBottomToolbar: true,
                 //displayPanels: ['Table'],
 				displayPanels: ['Table','Detail'],
-                //exportFormats: ['CSV', 'XLS', 'GMLv2', 'Shapefile', 'GeoJSON', 'WellKnownText'],
+                exportFormats: ['CSV', 'XLS', 'WellKnownText',{
+						name: 'KML (Google Earth)',
+						formatter: 'OpenLayersFormatter',
+						format: 'OpenLayers.Format.GeoJSON',
+						targetFormat: 'KML',
+						targetSrs: 'EPSG:4326',
+						//sourceSrs: 'EPSG:900913',
+						fileExt: '.kml',
+						mimeType: 'application/kml'
+					}],
                 hideColumns: ['objectid', 'gid'],
                 maxFeatures: 10,
                 autoConfigMaxSniff: 10,
@@ -408,10 +417,10 @@ var toolBarItems=[
 										protocol: new OpenLayers.Protocol.WFS({
 											version: "1.1.0"
 											,srsName: "EPSG:900913"
-											,url: serverURL+"/geoserver/dipsoh/wfs"
+											,url: "http://www.mosp.gba.gov.ar/sig_hidraulica/ms/geoserver/dipsoh/wfs"
 											,featureType: "parcelas_vista"
 											,featurePrefix: "dipsoh"
-											,featureNS :  serverURL+"/geoserver/dipsoh_postgis"
+											,featureNS :  "http://www.mosp.gba.gov.ar/sig_hidraulica/ms/geoserver/dipsoh_postgis"
 										}),
 										downloadFormats: [],
 										items: [
@@ -474,10 +483,10 @@ var toolBarItems=[
 										protocol: new OpenLayers.Protocol.WFS({
 											version: "1.1.0"
 											,srsName: "EPSG:900913"
-											,url: serverURL+"/geoserver/dipsoh/wfs"
+											,url: "http://www.mosp.gba.gov.ar/sig_hidraulica/ms/geoserver/dipsoh/wfs"
 											,featureType: "parcelas"
 											,featurePrefix: "dipsoh"
-											,featureNS : serverURL+"/geoserver/dipsoh_postgis"
+											,featureNS : "http://www.mosp.gba.gov.ar/sig_hidraulica/ms/geoserver/dipsoh_postgis"
 										}),
 										downloadFormats: [],
 										items: [
@@ -575,15 +584,15 @@ var toolBarItems=[
 								{
 									searchPanel: {
 										xtype: 'hr_formsearchpanel',
-										name: 'Busqueda de Obras Vivienda por codigo',
-										description: 'Busqueda de Obras Vivienda por codigo',
+										name: 'Busqueda de Obras por codigo de reparticion',
+										description: 'Busqueda de Obras por codigo de reparticion',
 										header: false,
 										border: false,
 										protocol: new OpenLayers.Protocol.WFS({
 											version: "1.1.0"
 											,srsName: "EPSG:900913"
 											,url: serverURL+"/geoserver/SigosGis/wfs"
-											,featureType: "vivenda.obras_sigos_poly"
+											,featureType: "obras_sigos_total"
 											,featurePrefix: "SigosGis"
 											,featureNS : "http://192.168.1.28/geoserver/SigosGis/SigosGis"
 										}),

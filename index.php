@@ -18,7 +18,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 	<meta http-equiv="x-ua-compatible" content="IE=EmulateIE8">
-	<title>Visor geografico SIGOS</title>
+	<title>EDITOR SIGOS</title>
 		
 	<?php
 	//$plano=$_GET['plano']; //php para capturar el parámetro pasado por URL

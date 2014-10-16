@@ -21,7 +21,7 @@
 
 //serverURL='http://www.mosp.gba.gov.ar/sig_hidraulica/ms';  //se define en index
 var apiKey = "ApjNQIT6SLCoD48dofLod3eQBSMsM933Yoe-GDn1uE3aVZjSCjgQxLWifL1Iic6_" //visor
-var wmsURL=serverURL+'/geoserver/dipsoh/wms?'; 
+var wmsDipsoh='http://www.mosp.gba.gov.ar/sig_hidraulica/ms/geoserver/dipsoh/wms?'; 
 Ext.namespace("Heron");
 Ext.namespace("Heron.globals");
 Heron.globals.serviceUrl=serverURL+'/cgi-bin/heron.cgi';
@@ -92,6 +92,14 @@ var treeTheme = [
 							{nodeType: "gx_layer", layer: "Lagos_y_lagunas",text:"Lagos y lagunas",legend:true },
 							{nodeType: "gx_layer", layer: "Rutas" ,legend:true },
 							{nodeType: "gx_layer", layer: "Parcelario_Geodesia" ,legend:true },
+						]
+				},
+				{
+					text:'Parcelario Arba', nodeType: 'hr_cascader', expanded: true, children:
+						[
+							{nodeType: "gx_layer", layer: "Partidos y Circunscripciones" },
+							{nodeType: "gx_layer", layer: "Macizos" },
+							{nodeType: "gx_layer", layer: "Parcelas" }
 						]
 				},
 				{
@@ -473,6 +481,15 @@ Heron.layout = {
 									wfs: {	protocol: 'fromWMSLayer', downloadFormats:Heron.options.wfs.downloadFormats }
 									}
 								}
+							),
+							layerParcelasArba = new OpenLayers.Layer.WMS("Parcelas",wmsDipsoh,
+								{layers: 'dipsoh:parcelas_vista',transparent: true, format:'image/png', singleTile: true },layerOptions
+							),
+							layerMacizosArba = new OpenLayers.Layer.WMS("Macizos",wmsDipsoh,
+								{layers: 'dipsoh:macizos_vista',transparent: true, format:'image/png', singleTile: true },layerOptions
+							),
+							layerCircunscripcionesArba = new OpenLayers.Layer.WMS("Partidos y Circunscripciones",wmsDipsoh,
+								{layers: ['dipsoh:secciones_vista','dipsoh:circunscripciones_vista','dipsoh:partidos_vista'],transparent: true, format:'image/png', singleTile: true },layerOptions
 							),
 							new OpenLayers.Layer.WMS("Hidrografia", wmsSigos,
 								{layers: 'SigosGis:hidro_view',transparent: true, format:'image/png', singleTile: true },layerOptions

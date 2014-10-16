@@ -31,6 +31,7 @@ OpenLayers.ProxyHost = serverURL+'/cgi-bin/proxy.cgi?url=';
 //var layerObras;
 //var layerBuffer;
 var layerOculto;
+var layerDelete;
 var mapPanel;
 var textoDIV;
 var wmsSigos="http://192.168.1.28/geoserver/SigosGis/wms?";

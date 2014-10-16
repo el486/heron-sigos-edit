@@ -1,13 +1,12 @@
 function borrarGeom(capa,nomCodigo){
 	Ext.Msg.prompt(nomCodigo, 'Ingrese '+nomCodigo+': ', function(btn, text){
 	if (btn == 'ok'){
-			
-			var layerDelete = new OpenLayers.Layer.Vector("layerDelete", {
+			if(!layerDelete){layerDelete = new OpenLayers.Layer.Vector("layerDelete", {
 				projection: new OpenLayers.Projection("EPSG:900913"),
 				displayInLayerSwitcher:true,
 				styleMap: styleIdObras
 				});
-			Heron.App.map.addLayer(layerDelete);
+			Heron.App.map.addLayer(layerDelete);}
 			
 			var url = 'http://192.168.1.28/geoserver/SigosGis/wms';
 			var postData = '<wfs:GetFeature xmlns:wfs="http://www.opengis.net/wfs" '
@@ -30,10 +29,10 @@ function borrarGeom(capa,nomCodigo){
 				alert('HTTP error ' + req.status);
 				return;
 			  }
-			  alert(req.responseText);
+			  //alert(req.responseText);
 			var gmlReader = new OpenLayers.Format.GML({ extractAttributes: true });
 			var features = gmlReader.read(req.responseText);
-			layerDelete.removeFeatures(layerDelete.features);
+			layerDelete.removeAllFeatures();
 			layerDelete.addFeatures(features);
 			Heron.App.map.zoomToExtent(layerDelete.getDataExtent());
 			}
@@ -150,12 +149,12 @@ var editToolbar=[{
 		items:[{
 				text: 'Agregar',
 				handler: function(){
-					agregarGeom('arquitectura.obras_sigos_poly3','expediente','Polygon');
+					agregarGeom('arquitectura.obras_sigos_poly','expediente','Polygon');
 					}
 			},{
 				text:'Borrar',
 				handler: function(){
-					borrarGeom('arquitectura.obras_sigos_poly3','expediente');											
+					borrarGeom('arquitectura.obras_sigos_poly','expediente');											
 					}
 			}]
 		}]
